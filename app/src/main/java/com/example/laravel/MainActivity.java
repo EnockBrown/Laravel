@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         create_acc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i= new Intent(MainActivity.this,Phone_verification.class);
+                Intent i= new Intent(MainActivity.this,Sign_Up.class);
                 startActivity(i);
             }
         });
