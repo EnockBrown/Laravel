@@ -1,8 +1,10 @@
 package com.example.laravel;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -24,6 +26,7 @@ public class Sign_Up extends AppCompatActivity {
 
     EditText name,email,password,c_password,phone;
     Button btn_register;
+    String s;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,17 +103,32 @@ public class Sign_Up extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         progressDialog.dismiss();
-                        String s= null;
+
                         try {
                             s = response.body().string();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        Toast.makeText(Sign_Up.this, s, Toast.LENGTH_LONG).show();
-                        Intent i =new Intent(Sign_Up.this,Phone_verification.class);
-                        i.putExtra("name",s);
-                        startActivity(i);
-                        finish();
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(Sign_Up.this);
+                        dialog.setCancelable(false);
+                        dialog.setTitle("Congrats! "+name.getText().toString().trim());
+                        dialog.setMessage("You are Now part of us " +
+                                "Click Next To Verify your phone Number");
+                        dialog.setPositiveButton("OK" , new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+
+                                Toast.makeText(Sign_Up.this, s, Toast.LENGTH_LONG).show();
+                                Intent i =new Intent(Sign_Up.this,Phone_verification.class);
+                                i.putExtra("name",s);
+                                startActivity(i);
+                                finish();
+                            }
+                        });
+
+                        final AlertDialog alert = dialog.create();
+                        alert.show();
+
                     }
 
                     @Override
@@ -121,6 +139,7 @@ public class Sign_Up extends AppCompatActivity {
                 });
 
             }
+
         });
     }
 }
