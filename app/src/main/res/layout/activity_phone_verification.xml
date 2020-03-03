@@ -29,7 +29,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:hint="ENTER MOBILE NUMBER"
-            android:id="@+id/edi_phonenumber"
+            android:id="@+id/edt_phonenumber"
             android:textSize="13sp"
             />
         <View
