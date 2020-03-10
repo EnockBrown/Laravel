@@ -16,6 +16,7 @@
         <TextView
             android:text="Enter the code that was sent to"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -35,7 +36,7 @@
             android:layout_height="10dp"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/edi_phonenumber"
+            android:id="@+id/code"
             android:hint="ENTER 4 DIGITS CODE"
             android:textColor="@color/black"
             android:layout_width="match_parent"
