@@ -76,7 +76,6 @@ public class Phone_verification extends AppCompatActivity {
 //                    }
 //                });
                 Intent i =new Intent(Phone_verification.this,Verify.class);
-                         i.putExtra("phone",phonenumber.getText().toString().trim());
                 startActivity(i);
             }
         });
